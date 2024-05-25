@@ -1,0 +1,33 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="form-container">
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <ion-text class="form-title">
+        <h2>Register</h2>
+      </ion-text>
+      <div class="input-container">
+        <ion-input formControlName="email" type="email" required></ion-input>
+        <ion-label position="floating">Email</ion-label>
+      </div>
+      <div class="input-container">
+        <ion-input formControlName="username" type="text" required></ion-input>
+        <ion-label position="floating">Username</ion-label>
+      </div>
+      <div class="input-container">
+        <ion-input formControlName="password" type="password" required></ion-input>
+        <ion-label position="floating">Password</ion-label>
+      </div>
+      <div class="input-container">
+        <ion-input formControlName="firstname" type="text" required></ion-input>
+        <ion-label position="floating">First Name</ion-label>
+      </div>
+      <div class="input-container">
+        <ion-input formControlName="lastname" type="text" required></ion-input>
+        <ion-label position="floating">Last Name</ion-label>
+      </div>
+      <ion-button expand="full" type="submit">Register</ion-button>
+      <div class="link-container">
+        <a [routerLink]="['/login']">Already have an account? Login</a>
+      </div>
+    </form>
+  </div>
+</ion-content>
