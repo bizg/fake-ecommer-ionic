@@ -42,9 +42,8 @@ export class LoginPage implements OnInit {
       this.authService.login(username, password).subscribe(
         (response: any) => {
           console.log('Login successful', response);
-          localStorage.setItem('token', response.token);
+          localStorage.setItem('userToken', response.token);
           this.router.navigate(['/home']);
-          // Redirigir a otra página o manejar el éxito de login aquí
         },
         (error: any) => {
           console.error('Login failed', error);
