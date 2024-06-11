@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cart</ion-title>
+    <ion-button fill="clear" routerLink="/home" slot="end">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  @if(cartItems.length) {
+    <ion-list>
+    @for(item of cartItems; track item.id) {
+        <ion-item>
+          <ion-label>
+            <h2>{{ item.name }}</h2>
+            <p>{{ item.description }}</p>
+            <p>Price: {{ item.price | currency }}</p>
+          </ion-label>
+          <ion-button slot="end" color="danger" (click)="removeFromCart(item)">Remove</ion-button>
+        </ion-item>
+      }
+    </ion-list>
+  } 
+  @else {
+    <ion-item>
+      <ion-label>Your cart is empty</ion-label>
+    </ion-item>
+  }
+  @if(cartItems.length) {
+    <ion-button expand="full" color="danger" (click)="clearCart()">Clear Cart</ion-button>
+  }
+</ion-content>
